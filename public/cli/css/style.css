@@ -6863,6 +6863,16 @@ h3 a:hover{
   padding: 10px 15px;
   transition: all 500ms ease;
 }
+.checkout-section .billing-form .form-group input[type='date']{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 50px;
+  border: 1px solid #e7e7e7;
+  border-radius: 10px;
+  padding: 10px 15px;
+  transition: all 500ms ease;
+}
 
 .checkout-section .billing-form .form-group input.address{
   margin-bottom: 10px;

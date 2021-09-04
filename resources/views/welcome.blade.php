@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- Styles -->
         <style>
@@ -77,8 +78,33 @@
                         @endif
                     @endauth
                 </div>
+                <ul>
+                    <li>
+                        <div class="dropdown header-top-dropdown">
+                            <a class="dropdown-toggle" id="myaccount" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                               
+                                
+                                    <i class="fa fa-bell"></i> 
+                               
+                               <i class="fa fa-angle-down"></i>
+                              
+                                
+                              
+                                
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="myaccount">
+                                <a class="dropdown-item" href="#"></a>
+                           
+                        </div>
+                    </li>
+                   
+                   
+                    
+                </ul>
+               
             @endif
-
+           
             <div class="content">
                 <div class="title m-b-md">
                     Laravel

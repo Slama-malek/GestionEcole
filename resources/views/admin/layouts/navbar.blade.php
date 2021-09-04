@@ -1,340 +1,106 @@
-<nav class="hk-nav hk-nav-dark">
-            <a href="javascript:void(0);" id="hk_nav_close" class="hk-nav-close"><span class="feather-icon"><i data-feather="x"></i></span></a>
-            <div class="nicescroll-bar">
-                <div class="navbar-nav-wrap">
-                    <ul class="navbar-nav flex-column">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#dash_drp">
-                                <span class="feather-icon"><i data-feather="activity"></i></span>
-                                <span class="nav-link-text">Dashboard</span>
-                            </a>
-                            <ul id="dash_drp" class="nav flex-column collapse collapse-level-1">
-                                <li class="nav-item">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item active">
-                                            <a class="nav-link" href="dashboard1.html">CRM</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="dashboard2.html">Project</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="dashboard3.html">Statistics</a>
-                                        </li>
-									
-									</ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('/admin/users')}}" >
-                                <span class="feather-icon"><i data-feather="users"></i></span>
-                                <span class="nav-link-text">Utilisateurs</span>
-                            </a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('admin/event')}}" >
-                                <span class="feather-icon"><i data-feather="book"></i></span>
-                                <span class="nav-link-text">Evenements</span>
-                            </a>
-                        </li>
-                         
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('admin/gallery')}}" >
-                                <span class="feather-icon"><i data-feather="camera"></i></span>
-                                <span class="nav-link-text">Galleries</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#pages_drp">
-                                <span class="feather-icon"><i data-feather="file-text"></i></span>
-                                <span class="nav-link-text">Pages</span>
-                            </a>
-                            <ul id="pages_drp" class="nav flex-column collapse collapse-level-1">
-                                <li class="nav-item">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="profile.html">Profile</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="invoice.html">Invoice</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="gallery.html">Gallery</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="activity.html">Activity</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="faq.html">Faq</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <hr class="nav-separator">
-                    <div class="nav-header">
-                        <span>User Interface</span>
-                        <span>UI</span>
-                    </div>
-                    <ul class="navbar-nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#Components_drp">
-                                <span class="feather-icon"><i data-feather="layout"></i></span>
-                                <span class="nav-link-text">Evenements</span>
-                            </a>
-                            <ul id="Components_drp" class="nav flex-column collapse collapse-level-1">
-                                <li class="nav-item">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{{url('/event')}}">Events</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="avatar.html">Avatar</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="badge.html">Badge</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="buttons.html">Buttons</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="cards.html">Cards</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="carousel.html">Carousel</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="collapse.html">Collapse</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="dropdowns.html">Dropdown</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="list-group.html">List Group</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="modal.html">Modal</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="nav.html">Nav</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="navbar.html">Navbar</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="nestable.html">Nestable</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="pagination.html">Pagination</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="popovers.html">Popovers</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="progress.html">Progress</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="tooltip.html">Tooltip</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#content_drp">
-                                <span class="feather-icon"><i data-feather="type"></i></span>
-                                <span class="nav-link-text">Content</span>
-                            </a>
-                            <ul id="content_drp" class="nav flex-column collapse collapse-level-1">
-                                <li class="nav-item">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="typography.html">Typography</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="images.html">Images</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="media-object.html">Media Object</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#utilities_drp">
-                                <span class="feather-icon"><i data-feather="anchor"></i></span>
-                                <span class="nav-link-text">Utilities</span>
-                            </a>
-                            <ul id="utilities_drp" class="nav flex-column collapse collapse-level-1">
-                                <li class="nav-item">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="background.html">Background</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="border.html">Border</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="colors.html">Colors</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="embeds.html">Embeds</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="icons.html">Icons</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="shadow.html">Shadow</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="sizing.html">Sizing</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="spacing.html">Spacing</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#forms_drp">
-                                <span class="feather-icon"><i data-feather="server"></i></span>
-                                <span class="nav-link-text">Forms</span>
-                            </a>
-                            <ul id="forms_drp" class="nav flex-column collapse collapse-level-1">
-                                <li class="nav-item">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="form-element.html">Form Elements</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="input-groups.html">Input Groups</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="form-layout.html">Form Layout</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="form-mask.html">Form Mask</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="form-validation.html">Form Validation</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="form-wizard.html">Form Wizard</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="file-upload.html">File Upload</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="editor.html">Editor</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#tables_drp">
-                                <span class="feather-icon"><i data-feather="list"></i></span>
-                                <span class="nav-link-text">Tables</span>
-                            </a>
-                            <ul id="tables_drp" class="nav flex-column collapse collapse-level-1">
-                                <li class="nav-item">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="basic-table.html">Basic Table</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="data-table.html">Data Table</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="responsive-table.html">Responsive Table</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="editable-table.html">Editable Table</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#charts_drp">
-                                <span class="feather-icon"><i data-feather="pie-chart"></i></span>
-                                <span class="nav-link-text">Charts</span>
-                            </a>
-                            <ul id="charts_drp" class="nav flex-column collapse collapse-level-1">
-                                <li class="nav-item">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="line-charts.html">Line Chart</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="area-charts.html">Area Chart</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="bar-charts.html">Bar Chart</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="pie-charts.html">Pie Chart</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="realtime-charts.html">Realtime Chart</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="mini-charts.html">Mini Chart</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#maps_drp">
-                                <span class="feather-icon"><i data-feather="map"></i></span>
-                                <span class="nav-link-text">Maps</span>
-                            </a>
-                            <ul id="maps_drp" class="nav flex-column collapse collapse-level-1">
-                                <li class="nav-item">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="google-map.html">Google Map</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="vector-map.html">Vector Map</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <hr class="nav-separator">
-                    <div class="nav-header">
-                        <span>Getting Started</span>
-                        <span>GS</span>
-                    </div>
-                    <ul class="navbar-nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="documentation.html" >
-                                <span class="feather-icon"><i data-feather="book"></i></span>
-                                <span class="nav-link-text">Documentation</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link link-with-badge" href="#">
-                                <span class="feather-icon"><i data-feather="eye"></i></span>
-                                <span class="nav-link-text">Changelog</span>
-                                <span class="badge badge-sm badge-danger badge-pill">v 1.0</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span class="feather-icon"><i data-feather="headphones"></i></span>
-                                <span class="nav-link-text">Support</span>
-                            </a>
-                        </li>
-                    </ul>
+<div class="navbar navbar-expand-md header-menu-one bg-light">
+    <div class="nav-bar-header-one">
+        <div class="header-logo">
+            <a href="index.html">
+                <img src="img/logo.png" alt="logo">
+            </a>
+        </div>
+         <div class="toggle-button sidebar-toggle">
+            <button type="button" class="item-link">
+                <span class="btn-icon-wrap">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+        </div>
+    </div>
+    <div class="d-md-none mobile-nav-bar">
+       <button class="navbar-toggler pulse-animation" type="button" data-toggle="collapse" data-target="#mobile-navbar" aria-expanded="false">
+            <i class="far fa-arrow-alt-circle-down"></i>
+        </button>
+        <button type="button" class="navbar-toggler sidebar-toggle-mobile">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+    <div class="header-main-menu collapse navbar-collapse" id="mobile-navbar">
+        <ul class="navbar-nav">
+            <li class="navbar-item header-search-bar">
+                <div class="input-group stylish-input-group">
+                   
+                    
                 </div>
-            </div>
-        </nav>
-        <div id="hk_nav_backdrop" class="hk-nav-backdrop"></div>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="navbar-item dropdown header-admin">
+                <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                    aria-expanded="false">
+                    <div class="admin-title">
+                        <h5 class="item-title">{{Auth::user()->name}}</h5>
+                        <span>Admin</span>
+                    </div>
+                   
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <div class="item-header">
+                        <h6 class="item-title">{{Auth::user()->name}}</h6>
+                    </div>
+                    <div class="item-content">
+                        <ul class="settings-list">
+                            <li><a href="#"><i class="flaticon-user"></i>Profile</a></li>
+                          
+                            <li><a href="login.html"><i class="flaticon-turn-off"></i>
+Déconnexion</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+           
+            <li class="navbar-item dropdown header-notification">
+                <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="far fa-bell"></i>
+                    <div class="item-title d-md-none text-16 mg-l-10">Notification</div>
+                    <span>8</span>
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right">
+                    <div class="item-header">
+                        <h6 class="item-title">03 Notifiacations</h6>
+                    </div>
+                    <div class="item-content">
+                        <div class="media">
+                            <div class="item-icon bg-skyblue">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="media-body space-sm">
+                                <div class="post-title">Complete Today Task</div>
+                                <span>1 Mins ago</span>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="item-icon bg-orange">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="media-body space-sm">
+                                <div class="post-title">Director Metting</div>
+                                <span>20 Mins ago</span>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="item-icon bg-violet-blue">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div class="media-body space-sm">
+                                <div class="post-title">Update Password</div>
+                                <span>45 Mins ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+</div>

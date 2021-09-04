@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Gallery;
 use App\Photo;
 use App\User;
+use App\Eleve;
 use DB;
 
 class GalleriesController extends Controller
@@ -24,20 +25,25 @@ class GalleriesController extends Controller
     */
 
     public function index() {
-        $galleries = Gallery::orderBy('created_at', 'desc')->paginate(12);
+        $eleves = Eleve::orderBy('created_at', 'desc')->paginate(5);
+
+        $galleries = Gallery::orderBy('created_at', 'desc')->paginate(5);
         //$date=DB::table('galleries')->get();
-        return view('admin.galleries.index')->with(compact('galleries' , 'date') );
+        
+        return view('admin.galleries.index')->with(compact('galleries','eleves' ) );
     }
 
     public function show($id) {
             $gallery = Gallery::find($id);
-            return view('admin.galleries.show')->with('gallery', $gallery)
-                ->with('photos', Photo::where('gallery_id', $gallery->id)->paginate(12));
+            return view('admin.galleries.show')->with(compact('gallery'));
+                
                
     }
 
     public function create() {
-        return view('admin.galleries.create');
+        $eleves = Eleve::orderBy('created_at', 'desc')->paginate(5);
+
+        return view('admin.galleries.create')->with(compact('eleves' ) );
     }
 
     public function store(Request $request) {
@@ -91,8 +97,8 @@ class GalleriesController extends Controller
                     $filenameToStore = $gallery->cover_image;
                 }
                 if ($filenameToStore != $gallery->cover_image) {
-                    Storage::delete('public/gallery_images/'.$gallery->cover_image);
-                    $path = $request->file('cover_image')->storeAs('public/gallery_images', $filenameToStore);
+                    Storage::delete('app/storage/gallery_images/'.$gallery->cover_image);
+                    $path = $request->file('cover_image')->storeAs('app/storage/gallery_images/', $filenameToStore);
                     $gallery->cover_image = $filenameToStore;
                 }
                 $gallery->name = $request->input('name');
@@ -101,7 +107,7 @@ class GalleriesController extends Controller
                 else
                     $gallery->description = '';
                 $gallery->save();
-                return redirect('/admin/gallery')->with('success', 'The gallery has been updated successfully');
+                return redirect('/admin/gallery')->with('success', 'La photo a été mise à jour avec succès');
             
             
         
@@ -118,9 +124,19 @@ class GalleriesController extends Controller
                     */
                    
                 $gallery->delete();
-                return redirect('/admin/gallery')->with('success', 'The gallery has been deleted successfully');
+                return redirect('/admin/gallery')->with('info', 'La photo a été supprimée avec succès');
             //} 
         }
+        public function search(Request $request) {
+            // // $galleries = DB::table('galleries')->where('galleries.name' , '=' , $request->input('matieres'))     
+    
+      
+            // // ->paginate(5);
+
+            //  $galleries = Gallery::orderBy('created_at', 'desc')->paginate(5);
+            // return view('admin.galleries.index')->with(compact('galleries' ) );
+        }
+        
         
     }
 

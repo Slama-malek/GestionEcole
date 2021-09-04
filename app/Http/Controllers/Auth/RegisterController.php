@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -63,10 +63,89 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+       //dd ($data['usertype']);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'usertype' => $data['usertype'],
+            'password' => bcrypt($data['password']),
         ]);
+    }
+  
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\Parents
+     */
+   
+    public function registerUser(Request $request)
+    {
+        $this->validation($request);
+       // dd($request->all());
+       
+        $user = new User();
+        $user->usertype=$request->get('usertype');
+        $user->name=$request->get('_name');
+        $user->email=$request->get('_email');
+        $user->password=bcrypt($request->get('_password'));
+        $user->save();
+        return redirect('/login-user');
+        
+    }
+    
+  
+    public function validation($request)
+    {
+        return $this->validate($request,[
+            '_name'=>'required|max:255',
+            '_email'=>'required|max:255',
+            '_password'=>'required|confirmed|max:255',
+        ]);
+    }
+    public function showLogin_register()
+    {
+        return view("user.login-register");
+    }
+    public function showRegistrationAdmin()
+    {
+        return view("admin.register");
+    }
+    public function handleProviderCallback($provider)
+    {
+        try
+        {
+            $socialUser = Socialite::driver($provider)->user();
+        }
+        catch(\Exception $e)
+        {
+            return redirect('/');
+        }
+        //check if we have logged provider
+        $socialProvider = SocialProvider::where('provider_id',$socialUser->getId())->first();
+        if(!$socialProvider)
+        {
+            //create a new user and provider
+            $user = User::firstOrCreate(
+                ['email' => $socialUser->getEmail()],
+                ['name' => $socialUser->getName()]
+            );
+
+            $user->socialProviders()->create(
+                ['provider_id' => $socialUser->getId(), 'provider' => $provider]
+            );
+
+        }
+        else
+            $user = $socialProvider->user;
+
+        auth()->login($user);
+
+        return redirect('/');
+
+    }
+    public function redirectToProvider($provider)
+    {
+        return Socialite::driver($provider)->redirect();
     }
 }

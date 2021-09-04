@@ -35,6 +35,21 @@ $(document).ready(function() {
 		}
 	} );
 	
+		/*Export DataTable Presence d'eleve */
+		$('#datable_31').DataTable( {
+			dom: 'Bfrtip',
+			responsive: true,
+			language: { search: "",searchPlaceholder: "Search" },
+			"bPaginate": false,
+			"info":     false,
+			"bFilter":     false,
+			buttons: [
+				'pdf', 'print'
+			],
+			"drawCallback": function () {
+				$('.dt-buttons > .btn').addClass('btn-outline-light btn-sm');
+			}
+		} );
 	var table = $('#datable_5').DataTable({
 		responsive: true,
 		language: { 

@@ -18,7 +18,7 @@
                                                     <th>Name</th>
                                                     <th>Email</th>
                                                     <th>Rôle</th>
-                                                  
+                                                 
                                                     
                                                     <th>Action</th>
                                                 </tr>
@@ -32,8 +32,11 @@
                                                     <td>{{$user->email}}</td>
                                                     @if ($user->usertype == 'admin')
                                                     <td><span class="badge badge-danger">admin</span> </td>
-                                                    @else
-                                                    <td><span class="badge badge-info">User</span> </td>
+                                                    @else @if($user->usertype == 'enseignant')
+                                                    <td><span class="badge badge-info">Enseignant</span> </td>
+                                                    @else 
+                                                    <td><span class="badge badge-warning">Parent</span> </td>
+                                                    @endif
                                                     @endif
                                                    
                                                     <td>
@@ -47,6 +50,10 @@
                                         </table>
                                     </div>
                                 </div>
+                              
                             </div>
+                            <hr>
+                            {{$users->links()}}
                         </section>
+                      
 @endsection

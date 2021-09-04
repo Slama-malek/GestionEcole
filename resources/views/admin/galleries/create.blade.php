@@ -16,7 +16,7 @@
                             {{Form::text('name', '', ['class' => 'form-control rounded-input mt-15', 'placeholder' => 'Titre du photo'])}} </br>
                                 
                             {{Form::textarea('description', '', ['class' => 'form-control mt-15"  ', 'placeholder' => ' Description'])}}
-                                </br>
+                                <br>
                                 {{Form::file('cover_image',['class' => 'fileinput fileinput-new input-group '])}} <br>
                                 
                                 {{Form::submit('Ajouter', ['class' => 'btn btn-success btn-rounded btn btn-gradient-success'],['style' => ''])}} 

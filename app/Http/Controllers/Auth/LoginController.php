@@ -34,9 +34,14 @@ class LoginController extends Controller
         {
             return  ('/admin');
         }
-        else 
+        
+        else if(Auth::user()->usertype == 'enseignant')
         {
-            return 'home';
+            return ('/dashboard-enseignant');
+        }
+        else if(Auth::user()->verif == 'parent')
+        {
+            return '/dashboard-parents';
         }
         
     }
@@ -49,5 +54,7 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        
     }
+    
 }

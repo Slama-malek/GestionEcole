@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-<title>Kidko - HTML 5 Template Preview</title>
+<title>Kidko</title>
 
 <!-- Stylesheets -->
 <link href="{{asset('cli/css/style.css')}}" rel="stylesheet">
@@ -72,18 +72,34 @@
                     </div>
                     <div class="header-info pull-right">
                         <ul class="info-list">
-                            <li>
-                                <i class="fas fa-phone"></i>
-                                <a href="tel:12345615523">123 4561 5523</a>
-                            </li>
-                            <li>
-                                <i class="fas fa-envelope"></i>
-                                <a href="mailto:info@example.com">info@example.com</a>
-                            </li>
+                           
                             <li>
                                 <i class="fas fa-user"></i>
-                                <a href="#">Log in or Register</a>
+                                @if(Auth::guest())
+                                <a href="{{url('login-parent')}}">Espace parent </a>
+                                <li>
+                                    <i class="fas fa-user"></i>
+                                    <a href="{{url('login-enseignant')}}">Espace Enseignant</a>
+                                </li>
+                                @elseif( Auth::user()->usertype=="parent")
+
+                            <a href="{{url('dashboard-parents')}}" target="_blank"> {{Auth::user()->name}}</a>
+                            @elseif(Auth::user()->usertype=="enseignant")
+                            <a href="{{url('dashboard-enseignant')}}" target="_blank"> {{Auth::user()->name}}</a>
+                            @else
+                            <a href="{{url('admin')}}" target="_blank"> {{Auth::user()->name}}</a>
+                                @endif
                             </li>
+                           
+                            <select onChange="location.href='locale/'+this.options[this.selectedIndex].value+''">
+                            <option value="">--Language--</option>
+                            <option value="en"><a href="locale/en">English</a></option>
+                             <option value="fr"><a href="locale/fr">Français</a></option>
+    
+          </select>
+                            
+
+                            
                         </ul>
                     </div>
                 </div>
@@ -94,7 +110,7 @@
             <div class="container">
                 <div class="clearfix">
                     <div class="logo-box pull-left">
-                        <figure class="logo"><a href="index-2.html"><img src="{{asset('cli/images/logo.png')}}" alt=""></a></figure>
+                        <figure class="logo"><a href="{{url('/')}}"><img src="{{asset('cli/images/logo.png')}}" alt=""></a></figure>
                     </div>
                     <div class="nav-outer pull-right clearfix">
                         <div class="menu-area">
@@ -107,56 +123,44 @@
                                     <span class="icon-bar"></span>
                                     </button>
                                 </div>
-                                <div class="navbar-collapse collapse clearfix">
+                                <div class="navbar-collapse collapse clearfix ">
                                     <ul class="navigation clearfix">
-                                        <li class="current dropdown"><a href="#">Home</a>
-                                            <ul>
-                                                <li><a href="index-2.html">Home Page 01</a></li>
-                                                <li><a href="index-3.html">Home Page 02</a></li>
-                                                <li><a href="index-4.html">Home Page 03</a></li>
-                                                <li class="dropdown"><a href="#">Header Styles</a>
-                                                <ul>
-                                                    <li><a href="index-2.html">Header Style 01</a></li>
-                                                    <li><a href="index-3.html">Header Style 02</a></li>
-                                                    <li><a href="index-4.html">Header Style 03</a></li>
-                                                </ul>
-                                            </li>
-                                            </ul>
+                                    <li><a href="{{url('/')}}">{{ __("Accueil") }}</a>
+                                            
                                         </li>
-                                        <li class="dropdown"><a href="#">About</a>
-                                            <ul>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="faq.html">Faq Page</a></li>
-                                                <li><a href="testimonial.html">Testimonials</a></li>
-                                                <li><a href="error.html">Error Page</a></li>
+                                        <li class="dropdown"><a href="#">{{ __("Notre école") }}</a>
+                                        <ul>
+                                                <li><a href="{{url('/Programme-prepartoire')}}">Programme Préparatoire</a></li>
+                                                <li><a href="{{url('/Programme-primaire')}}">Programme Primaire</a></li>
+                                                <li><a href="{{url('/reglement')}}">Réglement interne</a></li>
+                                           
                                             </ul>
                                         </li> 
-                                        <li class="dropdown"><a href="#">Classes</a>
-                                            <ul>
-                                                <li><a href="class.html">Our Classes</a></li>
-                                                <li><a href="class-details.html">Class Details</a></li>
+                                        <li><a  href="{{url('/gallerie/photos')}}">{{ __("Gallerie") }}</a>
+                                            
+                                        </li> 
+                                        <li class="dropdown"><a href="#">{{ __("Activités") }}</a>
+                                        <ul>
+                                                <li><a href="{{url('/clubs')}}">Clubs</a></li>
+                                                <li><a href="{{url('/events')}}">Évenements</a></li>
+                                                <li><a href="{{url('/sorties')}}">Sorties</a></li>
+                                           
                                             </ul>
                                         </li> 
-                                        <li class="dropdown"><a href="#">Pages</a>
-                                            <ul>
-                                                <li><a href="gallery.html">Our Gallery</a></li>
-                                                <li><a href="teachers.html">Our Teachers</a></li>
-                                                <li><a href="pricing.html">Pricing Table</a></li>
-                                                <li><a href="event.html">Our Events</a></li>
-                                                <li><a href="event-details.html">Event Details</a></li>
-                                                <li><a href="shop.html">Shop Page</a></li>
-                                                <li><a href="shop-details.html">Shop Details</a></li>
-                                                <li><a href="cart.html">Cart Page</a></li>
-                                                <li><a href="checkout.html">Checkout Page</a></li>
-                                            </ul>
+                                       
+                                        
+                                            
                                         </li>
-                                        <li class="dropdown"><a href="#">Blog</a>
+                                        <li class="dropdown"><a href="#">{{ __("Admission") }}</a>
                                             <ul>
-                                                <li><a href="blog.html">Blog Page</a></li>
-                                                <li><a href="blog-details.html">Blog Details</a></li>
+                                                <li><a href="{{url('/inscription')}}">{{ __("Inscription") }}</a></li>
+                                                <li><a href="{{url('/Procedures')}}">Procédures</a></li>
                                             </ul>
-                                        </li>                              
-                                        <li><a href="contact.html">Contact</a></li>
+                                        </li>  
+                                                                    
+                                        <li><a href="{{url('/contact')}}">Contact</a></li>
+                                        
+
                                     </ul>
                                 </div>
                             </nav>
@@ -166,7 +170,7 @@
                                 <li class="header-flyout-searchbar">
                                     <i class="fa fa-search"></i>
                                 </li>
-                                <li><a href="shop.html"><i class="fas fa-shopping-cart"></i></a></li>
+                                
                             </ul>
                         </div>
                     </div>
@@ -190,54 +194,45 @@
                         </div>
                         <div class="navbar-collapse collapse clearfix">
                             <ul class="navigation clearfix">
-                                <li class="current dropdown"><a href="#">Home</a>
-                                    <ul>
-                                        <li><a href="index-2.html">Home Page 01</a></li>
-                                        <li><a href="index-3.html">Home Page 02</a></li>
-                                        <li><a href="index-4.html">Home Page 03</a></li>
-                                        <li class="dropdown"><a href="#">Header Styles</a>
+                                <li><a href="{{url('/')}}">{{ __("Accueil") }}</a>
+                                    
+                                </li>
+                                <li class="dropdown"><a href="#">{{ __("Notre école") }}</a>
                                         <ul>
-                                            <li><a href="index-2.html">Header Style 01</a></li>
-                                            <li><a href="index-3.html">Header Style 02</a></li>
-                                            <li><a href="index-4.html">Header Style 03</a></li>
-                                        </ul>
-                                    </li>
-                                    </ul>
+                                                <li><a href="{{url('/Programme-prepartoire')}}">Programme Préparatoire</a></li>
+                                                <li><a href="{{url('/Programme-primaire')}}">Programme Primaire</a></li>
+                                                <li><a href="{{url('/reglement')}}">Réglement interne</a></li>
+                                           
+                                            </ul>
+                                        </li>  
+                                        <li><a href="{{url('/gallerie/photos')}}">{{ __("Gallerie") }}</a>
+                                            <ul>
+                                                <li><a href="{{url('/gallerie/photos')}}">{{ __("Photos") }}</a></li>
+                                                <li><a href="{{url('/gallerie/vidéos')}}">{{ __("vidéos") }}</a></li>
+                                           
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="#">{{ __("Activités") }}</a>
+                                        <ul>
+                                                <li><a href="{{url('/clubs')}}">Clubs</a></li>
+                                                <li><a href="{{url('/events')}}">Évenements</a></li>
+                                                <li><a href="{{url('/sorties')}}">Sorties</a></li>
+                                           
+                                            </ul>
+                                        </li>
+                               
+                                
+                                   
                                 </li>
-                                <li class="dropdown"><a href="#">About</a>
-                                    <ul>
-                                        <li><a href="about.html">About Us</a></li>
-                                        <li><a href="faq.html">Faq Page</a></li>
-                                        <li><a href="testimonial.html">Testimonials</a></li>
-                                        <li><a href="error.html">Error Page</a></li>
-                                    </ul>
-                                </li> 
-                                <li class="dropdown"><a href="#">Classes</a>
-                                    <ul>
-                                        <li><a href="class.html">Our Classes</a></li>
-                                        <li><a href="class-details.html">Class Details</a></li>
-                                    </ul>
-                                </li> 
-                                <li class="dropdown"><a href="#">Pages</a>
-                                    <ul>
-                                        <li><a href="gallery.html">Our Gallery</a></li>
-                                        <li><a href="teachers.html">Our Teachers</a></li>
-                                        <li><a href="pricing.html">Pricing Table</a></li>
-                                        <li><a href="event.html">Our Events</a></li>
-                                        <li><a href="event-details.html">Event Details</a></li>
-                                        <li><a href="shop.html">Shop Page</a></li>
-                                        <li><a href="shop-details.html">Shop Details</a></li>
-                                        <li><a href="cart.html">Cart Page</a></li>
-                                        <li><a href="checkout.html">Checkout Page</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a href="#">Blog</a>
-                                    <ul>
-                                        <li><a href="blog.html">Blog Page</a></li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                    </ul>
-                                </li>                              
-                                <li><a href="contact.html">Contact</a></li>
+                                <li class="dropdown"><a href="#">{{ __("Admission") }}</a>
+                                            <ul>
+                                                <li><a href="{{url('/inscription')}}">{{ __("Inscription") }}</a></li>
+                                                <li><a href="{{url('/Procedures')}}">Procédures</a></li>
+                                            </ul>
+                                        </li>  
+                                                            
+                                <li><a href="{{url('/contact')}}">Contact</a></li>
+                               
                             </ul>
                         </div>
                     </nav>
@@ -267,35 +262,35 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                             <div class="about-widget footer-widget">
-                                <h3 class="widget-title">About Kidko</h3>
+                                <h3 class="widget-title">A propos de Nous</h3>
                                 <div class="widget-content">
                                     <div class="text">
-                                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dese runt mollit anim id est laborum. Sed ut perspiciatis unde omnis.</p>
-                                        <p>iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                                        <p>L’école kidko est un établissement qui vise l’épanouissement de chaque enfant.</p>
+                                        <p>Dans un climat de responsabilité et de respect mutuel votre enfant pourra développer les habiletés nécessaires, lui permettant d’apprendre toute sa vie, dans une atmosphère favorisant l’éclosion de la culture et d’ouverture vers la communauté. Donc notre mission est de former un citoyen ouvert d’esprit, porteur de valeurs universelles et contributeur à l’édification d’un avenir meilleur.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                             <div class="link-widget footer-widget">
-                                <h3 class="widget-title">Useful Link</h3>
+                                <h3 class="widget-title">Liens utiles</h3>
                                 <div class="widget-content">
                                     <ul>
-                                        <li><a href="#">About us</a></li>
-                                        <li><a href="#">Class Schedule</a></li>
-                                        <li><a href="#">Teacher & Staff</a></li>
-                                        <li><a href="#">Contact us</a></li>
-                                        <li><a href="#">Our Gallery</a></li>
-                                        <li><a href="#">Privacy policy</a></li>
+                                        <li><a href="{{url('/reglement')}}">À propos de nous</a></li>
+                                        <li><a href="{{url('/clubs')}}">Nos Clubs</a></li>
+                                        
+                                        <li><a href="{{url('/contact')}}">Contacter Nous</a></li>
+                                        <li><a href="{{url('/gallerie/photos')}}">Notre Galerie</a></li>
+                                        
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                             <div class="contact-widget footer-widget">
-                                <h3 class="widget-title">Get in Touch</h3>
+                                <h3 class="widget-title">Entrer en Contact</h3>
                                 <div class="widget-content">
-                                    <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod.</div>
+                                    <div class="text"></div>
                                     <ul class="info-list">
                                         <li><i class="fas fa-home"></i>1201 park street, Fifth Avenue, Dhanmondy, Dhaka</li>
                                         <li><i class="fas fa-phone"></i><a href="tel:88657524332">[88] 657 524 332</a></li>
@@ -304,22 +299,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                            <div class="subscribe-widget footer-widget">
-                                <h3 class="widget-title">Subscribe Now</h3>
-                                <div class="widget-content">
-                                    <div class="text">Lorem ipsum dolor sit amet, consecte- tur adipisicing elit sed do eiusmod.</div>
-                                    <div class="subscribe-inner">
-                                        <form action="#" method="post" class="subscribe-form">
-                                            <div class="form-group">
-                                                <input type="email" name="email" placeholder="Enter Your Email" required="">
-                                                <button type="submit" class="theme-btn">Subscribe</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
@@ -328,10 +308,10 @@
             <div class="container">
                 <div class="inner-container clearfix">
                     <div class="left-content pull-left">
-                        <div class="copyright">Copyright &copy; <a href="#">tonatheme</a> 2019. All Rights Reserved</div>
+                        <div class="copyright">Copyright &copy; <a href="#"></a> 2019. All Rights Reserved</div>
                     </div>
                     <div class="right-content pull-right">
-                        <figure class="footer-logo"><a href="index-2.html"><img src="{{asset('cli/images/footer-logo.png')}}" alt=""></a></figure>
+                        <figure class="footer-logo"><a href="{{url('/')}}"><img src="{{asset('cli/images/footer-logo.png')}}" alt=""></a></figure>
                         <ul class="social-style-one footer-social clearfix">
                             <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -344,6 +324,7 @@
         </div>
     </footer>
     <!-- main-footer end -->
+    
 
 
 
@@ -365,6 +346,8 @@
 <script src="{{asset('cli/js/jquery.fancybox.js')}}"></script>
 <script src="{{asset('cli/js/appear.js')}}"></script>
 <script src="{{asset('cli/js/parallax.min.js')}}"></script>
+<script src="{{asset('cli/js/isotope.js')}}"></script>
+<script src="{{asset('cli/js/jquery-ui.js')}}"></script> 
 
 <!-- main-js -->
 <script src="{{asset('cli/js/script.js')}}"></script>
